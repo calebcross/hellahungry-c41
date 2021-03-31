@@ -1,26 +1,24 @@
 {
-  "name": "midterm_template",
+  "name": "hella-hungry",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
     "bulma": "^0.9.0",
-    "concurrently": "^5.2.0",
+    "concurrently": "^6.0.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "node-sass": "^4.14.1"
-  },
-  "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4",
-    "prettier": "^2.0.5"
   },
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "cd client && yarn run start",
-    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\"",
-    "heroku-postbuild": "cd client && yarn && yarn run build",
-    "prettify": "prettier '*/**/*.js' '*/**/*.jsx' '*/**/*.html' '*/**/*.css' --write"
+    "client": "cd client && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
   }
 }

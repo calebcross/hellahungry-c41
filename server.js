@@ -7,6 +7,13 @@ const path = require('path');
 const app = express();
 const axios = require('axios');
 
+// I can absolutely use cors on the server as middleware,
+// however in that React App, I'm calling the full URL in my axios
+// call, included the localhost. Not very efficient!
+// const cors = require('cors');
+
+// app.use(cors());
+
 // Call out Yelp API
 const getYelpAPI = async () => {
   return axios.get(
@@ -24,15 +31,6 @@ app.get('/api/yelp', async (request, response) => {
     response.status(500).send({ error: e.message });
   }
 });
-
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  // Handle React routing, return all requests to React app
-  app.get('*', (request, response) => {
-    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
-}
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {

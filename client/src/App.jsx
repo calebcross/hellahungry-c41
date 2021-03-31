@@ -24,7 +24,7 @@ const App = () => {
   }, []);
   return (
     <div id="app" className="container">
-      <h1 className="title">Wyncode Does Lunch</h1>
+      <h1 className="title">BrainStation Does Lunch</h1>
       {isError && <div className="err">Oh no, something went wrong :(</div>}
       {isLoading ? (
         <div className="loading">Loading...</div>
